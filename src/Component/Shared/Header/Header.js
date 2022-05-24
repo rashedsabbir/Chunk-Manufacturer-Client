@@ -13,7 +13,7 @@ const Header = () => {
     const {user,logOut}=useAuth()
     const navigation = [
         {id:1, name: 'Home', to: '/', current: true },
-        {id:2, name: 'Tools', to: '/tools', current: false },
+        {id:2, name: 'Parts', to: '/parts', current: false },
         {id:3, name: 'Gallery', to: '/gallery', current: false },
         {id:4, name: 'My Portfolio', to: '/my-portfolio', current: false },
         {id:5, name: 'Blog', to: '/blog', current: false },
