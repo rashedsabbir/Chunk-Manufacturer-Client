@@ -6,6 +6,7 @@ import './App.css';
 import Header from './Component/Shared/Header/Header';
 import Footer from './Component/Shared/Footer/Footer';
 import NotFound from './Component/Pages/NotFound/NotFound';
+import Blog from './Component/Pages/Blog/Blog'
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
   <BrowserRouter>
    <Header/>
    <Switch>
+   <Route path='/blog'>
+ <Blog></Blog>
+     </Route>
    <Route path='*'>
  <NotFound></NotFound>
      </Route>
