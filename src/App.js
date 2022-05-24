@@ -5,6 +5,7 @@ import PrivateRoute from './Component/hooks/PrivateRoute/PrivateRoute';
 import './App.css';
 import Header from './Component/Shared/Header/Header';
 import Footer from './Component/Shared/Footer/Footer';
+import NotFound from './Component/Pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -12,6 +13,11 @@ function App() {
       <AuthProvider>
   <BrowserRouter>
    <Header/>
+   <Switch>
+   <Route path='*'>
+ <NotFound></NotFound>
+     </Route>
+   </Switch>
    <Footer/>
    </BrowserRouter>
   </AuthProvider>
