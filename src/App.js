@@ -3,11 +3,16 @@ import { BrowserRouter,Switch,Route } from 'react-router-dom';
 import AuthProvider from './Component/hooks/AuthProvider/AuthProvider';
 import PrivateRoute from './Component/hooks/PrivateRoute/PrivateRoute';
 import './App.css';
+import Header from './Component/Shared/Header/Header';
 
 function App() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold text-amber-600 underline">My Project</h1>
+    <div className='App'>
+      <AuthProvider>
+  <BrowserRouter>
+   <Header/>
+   </BrowserRouter>
+  </AuthProvider>
       </div>
     
   );
