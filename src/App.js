@@ -7,6 +7,7 @@ import Header from './Component/Shared/Header/Header';
 import Footer from './Component/Shared/Footer/Footer';
 import NotFound from './Component/Pages/NotFound/NotFound';
 import Blog from './Component/Pages/Blog/Blog'
+import MyPortfolio from './Component/Pages/MyPortfolio/MyPortfolio';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
    <Switch>
    <Route path='/blog'>
  <Blog></Blog>
+     </Route>
+   <Route path='/my-portfolio'>
+ <MyPortfolio></MyPortfolio>
      </Route>
    <Route path='*'>
  <NotFound></NotFound>
