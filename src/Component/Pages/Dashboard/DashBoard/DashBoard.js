@@ -7,9 +7,9 @@ import MyProfile from '../MyProfile/MyProfile';
 // import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 // import MakeAdmin from '../MakeAdmin/MakeAdmin';
 // import AddAnProduct from '../AddAnProduct/AddAnProduct';
-// import Review from '../Review/Review';
-// import Pay from '../Pay/Pay';
-// import MyOrder from '../MyOrder/MyOrder';
+import Review from '../Review/Review';
+import Pay from '../Pay/Pay';
+import MyOrder from '../MyOrder/MyOrder';
 // import AdminRoute from '../../../hooks/AdminRoute/AdminRoute';
 // import ManageProduct from '../ManageProduct/ManageProduct';
 const DashBoard = () => {
@@ -73,15 +73,21 @@ const DashBoard = () => {
      <Route exact path={path}>
         <MyProfile></MyProfile>
      </Route>
-     {/* <Route path={`${path}/my_order`}>
+     <Route path={`${path}/payment`}>
+     <Pay></Pay>
+  </Route>
+  
+  <Route path={`${path}/post_review`}>
+  <Review></Review>
+</Route>
+<Route path={`${path}/my_order`}>
         <MyOrder></MyOrder>
      </Route>
-     <Route path={`${path}/post_review`}>
-        <Review></Review>
-     </Route>
-     <Route path={`${path}/payment`}>
-        <Pay></Pay>
-     </Route>
+     {
+     
+  /* 
+     
+     
      <AdminRoute path={`${path}/manage_all_order`}>
         <ManageAllOrders></ManageAllOrders>
      </AdminRoute>
