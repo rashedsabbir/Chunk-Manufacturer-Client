@@ -13,33 +13,32 @@ const Review = () => {
         setRating(rate)
       }
 
-//     const onSubmit = data => {
-//         reset()
-//         data.rating=rating
-//         data.pic=user.photoURL
-//           fetch("https://speed-trump-bd.herokuapp.com/reviews",{
-// method:"POST",
-// headers:{
-//     "content-type":"application/json"
-// },
-// body:JSON.stringify(data)
+    const onSubmit = data => {
+        reset()
+        data.rating=rating
+        data.pic=user.photoURL
+          fetch("http://localhost:5000/reviews",{
+method:"POST",
+headers:{
+    "content-type":"application/json"
+},
+body:JSON.stringify(data)
 
-//         })
-//         .then(res=>res.json())
-//         .then(data=>{
-//             if(data.acknowledged===true){
-//                 toast("Review Has been submit Successfully!")
-//             }
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            if(data.acknowledged===true){
+                toast("Review Has been submit Successfully!")
+            }
             
-//         }) 
-//     };
+        }) 
+    };
 
     return (
       <div>
           <h2 className=" bg-about  py-4 text-3xl  text-red-500">| Post Review</h2>
-          <form className=" lg:p-20 p-10 flex flex-col space-y-4 justify-center" >
-          {/* onSubmit={handleSubmit(onSubmit)}
-              paste it after form class later */}
+          <form className=" lg:p-20 p-10 flex flex-col space-y-4 justify-center" onSubmit={handleSubmit(onSubmit)}>
+          
         <input className="border-2 p-2 border-blue-900 rounded-md" defaultValue={user.displayName} placeholder="Full Name" {...register("name", { required: true, maxLength: 100 })} />
         <textarea rows="5" cols="30" className="border-2 p-2 border-blue-900 rounded-md" placeholder="Description" {...register("description")} />
      
@@ -47,7 +46,7 @@ const Review = () => {
     
       
       
-        <input className="bg-indigo-900 text-white py-2 rounded-md" type="submit" />
+        <input className="bg-indigo-900 text-white py-2 cursor-pointer  rounded-md" type="submit" />
         <ToastContainer/>
       </form>
               </div>

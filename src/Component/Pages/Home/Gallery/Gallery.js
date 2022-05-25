@@ -81,7 +81,7 @@ const Gallery = () => {
     return (
         <div className=" h-full py-10 bg-gallery-img ">
              <div className="mb-2 ">
-           <h2 className="text-wheat-200 text-3xl font-bold  text-center">| Chunks Gallery</h2>
+           <h2 className="text-white text-3xl font-bold  text-center">| Chunks Gallery</h2>
            <p className='text-blue-500'>Best parts are Available</p>
            </div>
           <div className="overflow-hidden h-full">

@@ -40,7 +40,7 @@ e.preventDefault()
   //  const googleFont=<FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon>
     return (
         <div>
-      <div className="min-h-full bg-about  flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-full bg-menu1  flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>
           <img src={logo} alt="" className="w-auto mx-auto h-12" />

@@ -30,8 +30,8 @@ const DashBoard = () => {
         <div className="font-sans">
         <div className="lg:flex ">
         {/* common section for dashboard  */}
-<div className="lg:w-1/4 lg:block  space-y-4 p-10 text-left bg-about text-white ">
-        <p className="text-3xl text-pink-400">DashBoard</p>
+<div className="lg:w-1/4 lg:block  space-y-4 p-10 text-left bg-menu1 text-white ">
+        <p className="text-3xl text-pink-300">DashBoard</p>
 <Link to={`${url}`} className="hover:bg-pink-700 p-2  block">
     <button>My Profile</button>
 </Link>
