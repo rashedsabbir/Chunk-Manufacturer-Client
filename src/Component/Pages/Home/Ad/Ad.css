@@ -4,3 +4,9 @@
     background-size: cover;
     background-position: center;
 }
+.bg-menu2{
+    background-image: linear-gradient(rgba(249, 95, 34, 0.8));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

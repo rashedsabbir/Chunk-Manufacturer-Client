@@ -3,6 +3,7 @@ import "./Footer.css"
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faEnvelope, faMapMarkerAlt, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
+
 import { faFacebookSquare, faInstagramSquare, faLinkedin, faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
 // import Lottie from "react-lottie"
 import logo from '../../../images/logo/brake.png'
@@ -18,7 +19,7 @@ const Footer = () => {
     const linkedinFont=<FontAwesomeIcon icon={faLinkedin}></FontAwesomeIcon>
     return (
         <div className=" bg-img">
-           <div className="text-white p-4">
+           <div className="text-white p-4 px-auto">
            <div className="p-4 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 sm:grid-cols-1 text-left gap-4">
                 <div className="">
                     <h3 className="text-white bg-opacity-95 flex items-center gap-2 text-4xl mb-2">

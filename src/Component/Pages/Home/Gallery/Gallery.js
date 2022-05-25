@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {Carousel} from '3d-react-carousal';
 import './Gallery.css'
 import firstGarage from '../../../../images/banner/first-garage.jpg'
@@ -84,7 +85,7 @@ const Gallery = () => {
            <p className='text-blue-500'>Best parts are Available</p>
            </div>
           <div className="overflow-hidden h-full">
-          <Carousel slides={ slides} className="w-96 h-96 bg-red-500"  interval={1000}>
+          <Carousel slides={ slides} className="w-96 h-96 bg-red-500" interval={1000}  cancelOnInteraction={false} >
   </Carousel>
           </div>
         </div>

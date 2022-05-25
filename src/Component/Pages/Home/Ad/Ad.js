@@ -3,7 +3,7 @@ import './Ad.css'
 import appBanner from '../../../../images/banner/app-banner-1.jpg'
 const Ad = () => {
     return (
-        <div className='bg-menu1'>
+        <div className='bg-menu1 py-10'>
             <div class="mockup-phone border-white">
           <div class="camera"></div> 
           <div class="display">

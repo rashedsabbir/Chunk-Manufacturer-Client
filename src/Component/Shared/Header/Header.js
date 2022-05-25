@@ -23,7 +23,7 @@ const Header = () => {
         return classes.filter(Boolean).join(' ')
       }
     return (
-        <div className=''>
+        <div className='px-auto'>
     <Disclosure as="nav" className="bg-header-img">
       {({ open }) => (
         <>
