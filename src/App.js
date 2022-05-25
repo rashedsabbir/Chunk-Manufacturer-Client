@@ -14,6 +14,7 @@ import NewUser from './Component/Pages/Authentication/NewUser/NewUser';
 import DashBoard from './Component/Pages/Dashboard/DashBoard/DashBoard';
 import UpdateProfile from './Component/Pages/Dashboard/UpdateProfile/UpdateProfile';
 import Home from './Component/Pages/Home/Home/Home';
+import Gallery from './Component/Pages/Home/Gallery/Gallery';
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
      <Route path='/home'>
  <Home></Home>
  </Route>
+ <Route path='/gallery'>
+ <Gallery></Gallery>
+     </Route>
    <Route path='/login'>
  <Login></Login>
      </Route>

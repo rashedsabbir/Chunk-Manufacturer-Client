@@ -1,9 +1,10 @@
 import React from 'react';
+import './Ad.css'
 import appBanner from '../../../../images/banner/app-banner-1.jpg'
 const Ad = () => {
     return (
-        <div>
-            <div class="mockup-phone border-orange-700">
+        <div className='bg-menu1'>
+            <div class="mockup-phone border-white">
           <div class="camera"></div> 
           <div class="display">
             <div class="artboard artboard-demo phone-1">
@@ -17,12 +18,13 @@ const Ad = () => {
     
     
     <div class="card-actions justify-around outline-orange-700">
-      <button class="btn outline outline-offset-2 outline-orange-700 bg-orange-700 text-white">Play Store</button>
-      <button class="btn outline outline-offset-2 outline-orange-700 bg-orange-700 text-white">Ios</button>
+      <button class="btn outline outline-offset-2 outline-white bg-orange-700 text-white">Play Store</button>
+      <button class="btn outline outline-offset-2 outline-white bg-orange-700 text-white">Ios</button>
     </div>
   </div>
 </div>
-</div></div>
+</div>
+</div>
           </div>
         </div> 
         

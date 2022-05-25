@@ -4,7 +4,7 @@ import { ChevronUpIcon } from '@heroicons/react/solid'
 
 export default function Example() {
   return (
-    <div className="w-full px-4 pt-16">
+    <div className="w-full px-4 pt-16 bg-menu1">
       <div>
         
         <button class="btn btn-primary text-4xl text-white mx-auto max-w-md rounded-lg bg-orange-600">
