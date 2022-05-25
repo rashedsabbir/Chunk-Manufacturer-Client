@@ -9,7 +9,9 @@ const Summary = () => {
     const peopleFont=<FontAwesomeIcon icon={faPeopleGroup}></FontAwesomeIcon>
     const commentFont=<FontAwesomeIcon icon={faComment}></FontAwesomeIcon>
     return (
-        <div className='bg-menu1 py-10'><h2 className='text-4xl font-bold px-auto'>Business Summary</h2><br />
+        
+        <div className='bg-menu1 py-10'><h2 className='text-4xl text-white font-bold px-auto'>Business Summary</h2><br />
+        
             <div class="stats stats-vertical lg:stats-horizontal shadow">
   
   <div class="stat text-3xl bg-orange-800">
