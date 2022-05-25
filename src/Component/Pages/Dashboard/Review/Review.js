@@ -4,6 +4,7 @@ import useAuth from "../../../hooks/useAuth/useAuth"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {  Rating } from 'react-simple-star-rating'
+import './Review.css'
 
 const Review = () => {
     const { register, handleSubmit,reset } = useForm();
@@ -35,7 +36,7 @@ body:JSON.stringify(data)
     };
 
     return (
-      <div>
+      <div className='bg-menu-review'>
           <h2 className=" bg-about  py-4 text-3xl  text-red-500">| Post Review</h2>
           <form className=" lg:p-20 p-10 flex flex-col space-y-4 justify-center" onSubmit={handleSubmit(onSubmit)}>
           
