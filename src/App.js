@@ -11,6 +11,7 @@ import MyPortfolio from './Component/Pages/MyPortfolio/MyPortfolio';
 import Login from './Component/Pages/Authentication/Login/Login';
 import Register from './Component/Pages/Authentication/Register/Register';
 import NewUser from './Component/Pages/Authentication/NewUser/NewUser';
+import DashBoard from './Component/Pages/Dashboard/DashBoard/DashBoard';
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
      
      <PrivateRoute path='/new_user'>
  <NewUser></NewUser>
+     </PrivateRoute>
+     <PrivateRoute path='/dashboard'>
+ <DashBoard></DashBoard>
      </PrivateRoute>
    <Route path='*'>
  <NotFound></NotFound>
