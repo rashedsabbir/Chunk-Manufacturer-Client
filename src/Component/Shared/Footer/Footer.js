@@ -26,7 +26,7 @@ const Footer = () => {
                        
                         Chunk Manufacturer</h3>
                     <p className="text-gray-300 text-sm">
-                        Chunk Manufacturer is an parts manufacturer based website. Here only sell world best parts for car. Check out our Parts page and choose your desired parts for your favorite car.
+                        Chunk Manufacturer is a parts manufacturer based website. Here only sell world best parts for car. Check out our Parts page and choose your desired parts for your favorite car.
                       
                     </p>
 <p className="text-4xl my-3 text-yellow-400">Follow Us</p>

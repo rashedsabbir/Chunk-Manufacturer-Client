@@ -12,6 +12,7 @@ import Login from './Component/Pages/Authentication/Login/Login';
 import Register from './Component/Pages/Authentication/Register/Register';
 import NewUser from './Component/Pages/Authentication/NewUser/NewUser';
 import DashBoard from './Component/Pages/Dashboard/DashBoard/DashBoard';
+import UpdateProfile from './Component/Pages/Dashboard/UpdateProfile/UpdateProfile';
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
      <PrivateRoute path='/dashboard'>
  <DashBoard></DashBoard>
      </PrivateRoute>
+     <PrivateRoute path="/update-profile">
+          <UpdateProfile></UpdateProfile>
+        </PrivateRoute>
    <Route path='*'>
  <NotFound></NotFound>
      </Route>
