@@ -13,6 +13,7 @@ import Register from './Component/Pages/Authentication/Register/Register';
 import NewUser from './Component/Pages/Authentication/NewUser/NewUser';
 import DashBoard from './Component/Pages/Dashboard/DashBoard/DashBoard';
 import UpdateProfile from './Component/Pages/Dashboard/UpdateProfile/UpdateProfile';
+import Home from './Component/Pages/Home/Home/Home';
 
 function App() {
   return (
@@ -21,6 +22,12 @@ function App() {
   <BrowserRouter>
    <Header/>
    <Switch>
+   <Route exact path='/'>
+ <Home></Home>
+     </Route>
+     <Route path='/home'>
+ <Home></Home>
+ </Route>
    <Route path='/login'>
  <Login></Login>
      </Route>
