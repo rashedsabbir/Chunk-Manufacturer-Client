@@ -1,11 +1,15 @@
 import { Disclosure } from '@headlessui/react'
+import React from 'react'
 import { ChevronUpIcon } from '@heroicons/react/solid'
 
 export default function Example() {
   return (
     <div className="w-full px-4 pt-16">
       <div>
-        <h2 className='text-4xl text-white mx-auto max-w-md rounded-sm bg-orange-600'>Blogs</h2>
+        
+        <button class="btn btn-primary text-4xl text-white mx-auto max-w-md rounded-lg bg-orange-600">
+  Blogs
+</button>
       </div>
       <div className="mx-auto w-full max-w-md rounded-2xl bg-white p-2">
         <Disclosure>
@@ -27,7 +31,7 @@ export default function Example() {
                   <li>React windowing or list virtualization.</li>
                   <li>React's lazy image loading.</li>
                 </ul>
-             
+
               </Disclosure.Panel>
             </>
           )}

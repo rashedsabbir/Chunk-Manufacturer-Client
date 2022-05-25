@@ -1,4 +1,4 @@
-import { BrowserRouter,Switch,Route } from 'react-router-dom';
+import { BrowserRouter, Switch ,Route } from 'react-router-dom';
 
 import AuthProvider from './Component/hooks/AuthProvider/AuthProvider';
 import PrivateRoute from './Component/hooks/PrivateRoute/PrivateRoute';
@@ -8,6 +8,9 @@ import Footer from './Component/Shared/Footer/Footer';
 import NotFound from './Component/Pages/NotFound/NotFound';
 import Blog from './Component/Pages/Blog/Blog'
 import MyPortfolio from './Component/Pages/MyPortfolio/MyPortfolio';
+import Login from './Component/Pages/Authentication/Login/Login';
+import Register from './Component/Pages/Authentication/Register/Register';
+import NewUser from './Component/Pages/Authentication/NewUser/NewUser';
 
 function App() {
   return (
@@ -16,12 +19,22 @@ function App() {
   <BrowserRouter>
    <Header/>
    <Switch>
+   <Route path='/login'>
+ <Login></Login>
+     </Route>
+     <Route path='/register'>
+ <Register></Register>
+     </Route>
    <Route path='/blog'>
  <Blog></Blog>
      </Route>
    <Route path='/my-portfolio'>
  <MyPortfolio></MyPortfolio>
      </Route>
+     
+     <PrivateRoute path='/new_user'>
+ <NewUser></NewUser>
+     </PrivateRoute>
    <Route path='*'>
  <NotFound></NotFound>
      </Route>
