@@ -14,7 +14,8 @@ import NewUser from './Component/Pages/Authentication/NewUser/NewUser';
 import DashBoard from './Component/Pages/Dashboard/DashBoard/DashBoard';
 import UpdateProfile from './Component/Pages/Dashboard/UpdateProfile/UpdateProfile';
 import Home from './Component/Pages/Home/Home/Home';
-import Gallery from './Component/Pages/Home/Gallery/Gallery';
+import Banner from './Component/Pages/Home/Banner/Banner';
+import Products from './Component/Pages/Home/Products/Products';
 
 function App() {
   return (
@@ -30,7 +31,10 @@ function App() {
  <Home></Home>
  </Route>
  <Route path='/gallery'>
- <Gallery></Gallery>
+ <Banner></Banner>
+     </Route>
+ <Route path='/parts'>
+ <Products></Products>
      </Route>
    <Route path='/login'>
  <Login></Login>

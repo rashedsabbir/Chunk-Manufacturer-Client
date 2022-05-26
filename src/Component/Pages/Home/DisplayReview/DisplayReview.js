@@ -34,7 +34,7 @@ const DisplayReview = () => {
         <div className='py-5 bg-menu1'>
            <div className=' pb-5'>
            <h2 className="text-white text-4xl font-bold pt-8 text-center">| Our Customer says</h2>
-            <p className="text-white font-bold">And gave their valuable review</p>
+            <p className="text-yellow-500 font-bold">And gave their valuable review</p>
            </div>
    <Swiper speed={600} parallax={true} autoplay={{
     "delay": 2000,

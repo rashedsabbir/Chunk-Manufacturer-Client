@@ -1,16 +1,17 @@
 import React from 'react';
 import Ad from '../Ad/Ad';
 import DisplayReview from '../DisplayReview/DisplayReview';
-
-import Gallery from '../Gallery/Gallery';
 import Leading from '../Leading/Leading';
+import Products from '../Products/Products';
 import Summary from '../Summary/Summary';
+import Banner from '../Banner/Banner';
 
 const Home = () => {
     return (
         <div>
-            <Gallery></Gallery>
+            <Banner></Banner>
             <Summary></Summary>
+            <Products></Products>
             <Leading></Leading>
             <DisplayReview></DisplayReview>
             <Ad></Ad>
