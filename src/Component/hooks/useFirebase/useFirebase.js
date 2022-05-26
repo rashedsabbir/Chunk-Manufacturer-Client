@@ -17,7 +17,7 @@ const [isLoading,setIsLoading]=useState(true)
 .then(result=>{
     const user=result.user
     setUser(user)
-    // saveUserToDB(user.email,user.displayName,user.photoURL,'PUT')
+    saveUserToDB(user.email,user.displayName,user.photoURL,'PUT')
     setError('')
 })
 .catch(error=>{
@@ -60,17 +60,17 @@ return ()=> unsubscribe
     // ..
   });
  }
-//  const saveUserToDB=(email,name,pic,method)=>{
-//     const user={email,name,pic}
-//     fetch('https://speed-trump-bd.herokuapp.com/user_data',{
-//         method:method,
-//         headers:{
-//             'content-type':'application/json'
-//         },
-//         body:JSON.stringify(user)
-//     })
-//     .then()
-// }
+ const saveUserToDB=(email,name,pic,method)=>{
+    const user={email,name,pic}
+    fetch('http://localhost:5000/user_data',{
+        method:method,
+        headers:{
+            'content-type':'application/json'
+        },
+        body:JSON.stringify(user)
+    })
+    .then()
+}
 const signUp=(email,password,name,profile)=>{
  return createUserWithEmailAndPassword(auth,email,password)
 .then(result=>{
@@ -84,7 +84,7 @@ const signUp=(email,password,name,profile)=>{
         // An error occurred
         // ...
       });
-    //   saveUserToDB(email,name,profile,'POST')
+      saveUserToDB(email,name,profile,'POST')
     setError('')
 })
 .catch(error=>{

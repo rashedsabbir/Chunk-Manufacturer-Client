@@ -40,7 +40,7 @@ const paymentNum=paymentNumRef.current.value
         const book={
 userName,email,phone,date,carName,pic,paymentVia,paymentNum,status:"Pending"
         }
-        fetch(`https://localhost:5000/purchase`,{
+        fetch(`http://localhost:5000/purchase`,{
             method:"POST",
             headers:{
                 "content-type":"application/json"
@@ -201,6 +201,7 @@ Master/Visa Card
                </div>
                
                 <input type="submit" className="py-4 w-full px-4 rounded-md bg-green-900 text-white" value="Book Now" />
+                
               </form>
             </div> 
               <div className="bg-gray-50  px-4 py-3 sm:px-6 w-full text-center">

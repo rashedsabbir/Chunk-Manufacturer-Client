@@ -17,14 +17,14 @@ const DashBoard = () => {
     const {admin,logOut}=useAuth()
     const [orders,setOrders]=useState([])
     // const [status,setStatus]=useState('Pending')
-    // useEffect(()=>{
-    //     fetch("https://speed-trump-bd.herokuapp.com/purchase")
-    //     .then(res=>res.json())
-    //     .then(data=>{
-    //         setOrders(data)
-    //     }
-    //         )
-    // },[orders])
+    useEffect(()=>{
+        fetch("http://localhost:5000/purchase")
+        .then(res=>res.json())
+        .then(data=>{
+            setOrders(data)
+        }
+            )
+    },[orders])
   
     return (
         <div className="font-sans">
