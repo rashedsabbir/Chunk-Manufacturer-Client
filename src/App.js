@@ -15,7 +15,8 @@ import DashBoard from './Component/Pages/Dashboard/DashBoard/DashBoard';
 import UpdateProfile from './Component/Pages/Dashboard/UpdateProfile/UpdateProfile';
 import Home from './Component/Pages/Home/Home/Home';
 import Banner from './Component/Pages/Home/Banner/Banner';
-import Products from './Component/Pages/Home/Products/Products';
+
+import PartExplore from './Component/Pages/PartExplore/PartExplore';
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
  <Banner></Banner>
      </Route>
  <Route path='/parts'>
- <Products></Products>
+ <PartExplore></PartExplore>
      </Route>
    <Route path='/login'>
  <Login></Login>
