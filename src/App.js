@@ -15,9 +15,9 @@ import DashBoard from './Component/Pages/Dashboard/DashBoard/DashBoard';
 import UpdateProfile from './Component/Pages/Dashboard/UpdateProfile/UpdateProfile';
 import Home from './Component/Pages/Home/Home/Home';
 import Banner from './Component/Pages/Home/Banner/Banner';
-
 import PartExplore from './Component/Pages/PartExplore/PartExplore';
 import SinglePartExplore from './Component/Pages/SinglePartExplore/SinglePartExplore';
+import PurchaseComplete from './Component/Pages/PurchaseComplete/PurchaseComplete';
 
 function App() {
   return (
@@ -50,7 +50,10 @@ function App() {
    <Route path='/my-portfolio'>
  <MyPortfolio></MyPortfolio>
      </Route>
-     
+
+     <PrivateRoute path='/purchase_done'>
+ <PurchaseComplete></PurchaseComplete>
+     </PrivateRoute>
      <PrivateRoute path='/new_user'>
  <NewUser></NewUser>
      </PrivateRoute>

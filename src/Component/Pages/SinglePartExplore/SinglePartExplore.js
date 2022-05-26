@@ -29,36 +29,36 @@ fetch(url)
 .then(data=>setCar(data))
     },[id])
 
-//     const bookPackage=(e)=>{
-// const userName=user.displayName===null ? userNameRef.current.value : user.displayName
-// const email=user.email
-// const carName=name
-// const phone=phoneRef.current.value
-// const date=dateRef.current.value
-// const paymentVia=paymentViaRef.current.value
-// const paymentNum=paymentNumRef.current.value
-//         const book={
-// userName,email,phone,date,carName,pic,paymentVia,paymentNum,status:"Pending"
-//         }
-//         fetch(`https://localhost:5000/purchase`,{
-//             method:"POST",
-//             headers:{
-//                 "content-type":"application/json"
-//             },
-//             body:JSON.stringify(book)
-//         })
-//         .then(res=>res.json())
-//         .then(data=>{
-//             if(data.acknowledged===true){
-//                 history.push("/purchase_done")
-//             }
-//         })
-//         phoneRef.current.value=""
-//         dateRef.current.value=""
-//         paymentViaRef.current.value="Payment"
-//         paymentNumRef.current.value=""
-// e.preventDefault()
-//     }
+    const bookPackage=(e)=>{
+const userName=user.displayName===null ? userNameRef.current.value : user.displayName
+const email=user.email
+const carName=name
+const phone=phoneRef.current.value
+const date=dateRef.current.value
+const paymentVia=paymentViaRef.current.value
+const paymentNum=paymentNumRef.current.value
+        const book={
+userName,email,phone,date,carName,pic,paymentVia,paymentNum,status:"Pending"
+        }
+        fetch(`https://localhost:5000/purchase`,{
+            method:"POST",
+            headers:{
+                "content-type":"application/json"
+            },
+            body:JSON.stringify(book)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            if(data.acknowledged===true){
+                history.push("/purchase_done")
+            }
+        })
+        phoneRef.current.value=""
+        dateRef.current.value=""
+        paymentViaRef.current.value="Payment"
+        paymentNumRef.current.value=""
+e.preventDefault()
+    }
     
     const clockFont=<FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
     
@@ -171,9 +171,9 @@ fetch(url)
             <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
               <div className="bg-gray-100 rounded-xl p-4 lg:mt-0 mt-4 text-left space-y-4">
                 <h1 className="text-3xl my-2">Book This Parts</h1>
-              <form className="space-y-4" >
+              <form className="space-y-4" onSubmit={bookPackage}>
 
-              {/* onSubmit={bookPackage} paste it in after upper form class*/}
+              
 
               <input className="p-4 w-full border-2 border-gray-200   rounded-md block" type="text" defaultValue={user.displayName} ref={userNameRef} required name="" id="" placeholder=" Full Name" />
                 <input type="number" ref={phoneRef} className="p-4 w-full border-2 border-gray-200 rounded-md block" required name="" id="" placeholder=" Phone" />
