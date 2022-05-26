@@ -18,6 +18,7 @@ import Banner from './Component/Pages/Home/Banner/Banner';
 import PartExplore from './Component/Pages/PartExplore/PartExplore';
 import SinglePartExplore from './Component/Pages/SinglePartExplore/SinglePartExplore';
 import PurchaseComplete from './Component/Pages/PurchaseComplete/PurchaseComplete';
+import SingleManageProduct from './Component/Pages/Dashboard/SingleManageProduct/SingleManageProduct';
 
 function App() {
   return (
@@ -50,7 +51,9 @@ function App() {
    <Route path='/my-portfolio'>
  <MyPortfolio></MyPortfolio>
      </Route>
-
+     <PrivateRoute path='/manage_product/:id'>
+ <SingleManageProduct></SingleManageProduct>
+     </PrivateRoute>
      <PrivateRoute path='/purchase_done'>
  <PurchaseComplete></PurchaseComplete>
      </PrivateRoute>

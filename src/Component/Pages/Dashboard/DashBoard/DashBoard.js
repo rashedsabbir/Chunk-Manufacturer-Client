@@ -4,14 +4,14 @@ import {Link,Route,Switch,useRouteMatch} from "react-router-dom"
 import useAuth from "../../../hooks/useAuth/useAuth"
 import 'react-toastify/dist/ReactToastify.css';
 import MyProfile from '../MyProfile/MyProfile';
-// import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
-// import MakeAdmin from '../MakeAdmin/MakeAdmin';
-// import AddAnProduct from '../AddAnProduct/AddAnProduct';
+import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import AddAnProduct from '../AddAnProduct/AddAnProduct';
 import Review from '../Review/Review';
 import Pay from '../Pay/Pay';
 import MyOrder from '../MyOrder/MyOrder';
-// import AdminRoute from '../../../hooks/AdminRoute/AdminRoute';
-// import ManageProduct from '../ManageProduct/ManageProduct';
+import AdminRoute from '../../../hooks/AdminRoute/AdminRoute';
+import ManageProduct from '../ManageProduct/ManageProduct';
 const DashBoard = () => {
     const {url,path}=useRouteMatch()
     const {admin,logOut}=useAuth()
@@ -55,10 +55,10 @@ const DashBoard = () => {
     <button>Manage All Orders</button>
 </Link>
 <Link to={`${url}/manage_product`} className="hover:bg-pink-700 p-2 block">
-    <button>Manage Product</button>
+    <button>Manage Parts</button>
 </Link>
 <Link to={`${url}/add_an_product`} className="hover:bg-pink-700 p-2 block">
-    <button>Add Services</button>
+    <button>Add Parts</button>
 </Link>
     </div>
 }
@@ -83,23 +83,21 @@ const DashBoard = () => {
 <Route path={`${path}/my_order`}>
         <MyOrder></MyOrder>
      </Route>
-     {
-     
-  /* 
-     
-     
-     <AdminRoute path={`${path}/manage_all_order`}>
-        <ManageAllOrders></ManageAllOrders>
+     <AdminRoute path={`${path}/add_an_product`}>
+        <AddAnProduct></AddAnProduct>
      </AdminRoute>
      <AdminRoute path={`${path}/manage_product`}>
         <ManageProduct></ManageProduct>
      </AdminRoute>
-     <AdminRoute path={`${path}/add_an_product`}>
-        <AddAnProduct></AddAnProduct>
+     <AdminRoute path={`${path}/manage_all_order`}>
+        <ManageAllOrders></ManageAllOrders>
      </AdminRoute>
+     
+     
      <AdminRoute path={`${path}/make_admin`}>
         <MakeAdmin></MakeAdmin>
-     </AdminRoute> */}
+     </AdminRoute>
+     
  </Switch>
 
         </div>

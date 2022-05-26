@@ -1,65 +1,71 @@
-import React,{useEffect, useState,Fragment, useRef} from 'react';
-import useAuth from "../../../hooks/useAuth/useAuth"
+import React, { useEffect, useState,Fragment, useRef } from 'react';
+import {useHistory} from 'react-router-dom'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationIcon } from '@heroicons/react/outline'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-const MyOrder = () => {
-    const {user,logOut}=useAuth()
+const ManageProduct = () => {
     const [open, setOpen] = useState(false)
-    const cancelButtonRef = useRef(null)
-
-    const [orders,setOrders]=useState([])
+    const history=useHistory()
+  const cancelButtonRef = useRef(null)
+    const [products,setProducts]=useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/myorder/${user.email}`,{
-            headers:{
-                "authorization":`Bearer ${localStorage.getItem("idToken")}`
-            }
-        })
-        .then(res=>{
-            if(res.status===200){
-                return res.json()
-            }
-            else if(res.status=== 401){
-                logOut()
-            }
-        })
-        .then(data=>setOrders(data))
-    },[user.email,logOut])
-
+        fetch("http://localhost:5000/cars")
+        .then(res=>res.json())
+        .then(data=>{
+          
+            setProducts(data.products)
+        }
+            )
+    },[products])
+  
     const clickDelete=id=>{
-        fetch(`http://localhost:5000/purchase/${id}`,{
+        fetch(`http://localhost:5000/cars/${id}`,{
             method:"DELETE",
         })
        .then(response=>response.json())
         .then(data=>{
             if(data.deletedCount>0){
-                const remaining= orders.filter(order=>order._id!==id)
-                setOrders(remaining)
-                toast("Order Successfully Deleted!")
+                const remaining= products.filter(product=>product._id!==id)
+                setProducts(remaining)
+                toast("Product Successfully Deleted!")
 
             }
         })
     }
-    return (
-        <div className="lg:p-10 p-4">
-                                 <ToastContainer/>
-    <h2 className="text-3xl text-red-500">| My order</h2>
-    <ul className="">
-    
-        {
-            orders.map(order=><li key={order._id} className=" rounded-lg gap-4 grid lg:grid-cols-4  grid-cols-2  lg:space-y-0 space-y-4 justify-center items-center p-2 my-4 bg-white">
-<img src={order.pic} className="w-full rounded-lg h-24" alt="" />
-<p className="text-xl flex-col  font-sans flex">Model: <small className="text-pink-600">{order.carName}</small> </p>
-<p className="text-xl flex-col flex">Issue Date: <small>{order.date}</small> </p>
 
-<div className="flex gap-4 items-center">
-<p className={order.status!=="Approved"?"text-red-500 font-sans font-medium":"text-green-700 font-medium"}>{order.status}</p>
-<button onClick={()=>setOpen(true)} className="border-2 text-red-600 px-2 border-pink-600 font-extrabold">X</button>
-</div>
-  {/* delete modal  */}
-  <Transition.Root show={open} as={Fragment}>
+const clickApproved=(id)=>{
+            history.push(`/manage_product/${id}`)
+}
+    return (
+      <div className="lg:p-10 p-4">
+                     <ToastContainer/>
+            <h2 className="text-3xl text-red-500">| Manage Parts</h2>
+            <ul className="">
+        {
+            products.map(product=><li key={product._id} className="lg:grid-cols-4 rounded-lg gap-4 grid grid-cols-2 text-left lg:space-y-0 space-y-4 justify-between items-center p-2 my-4 bg-white">
+                
+                <div className="relative flex justify-center">
+                    <p className="text-xs text-center absolute bg-gray-900 bg-opacity-30 rounded-md  top-2/4 text-white">Model: <small>{product.name}</small> </p>
+
+<img src={product.pic} className="w-full rounded-lg h-24" alt="" />
+
+    </div>
+    <div>
+<p className="text-xl font-medium">Price: <span className="text-pink-500">{product.price}</span></p>
+
+    </div>
+    
+    <div className=''>
+
+<span className="flex gap-2 mt-2">
+   
+     <button onClick={()=>clickApproved(product._id)} className="bg-indigo-600 border-2 border-indigo-900 text-white px-2">Update</button>
+
+    <button onClick={()=>setOpen(true)} className="border-2 text-red-600 px-2 border-pink-600 font-extrabold">X</button></span> 
+
+    {/* delete modal  */}
+    <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="fixed z-10 inset-0 overflow-y-auto" initialFocus={cancelButtonRef} onClose={setOpen}>
         <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child
@@ -95,11 +101,11 @@ const MyOrder = () => {
                   </div>
                   <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                     <Dialog.Title as="h3" className="text-lg leading-6 font-medium text-gray-900">
-                      Delete Order
+                      Delete product
                     </Dialog.Title>
                     <div className="mt-2">
                       <p className="text-sm text-gray-500">
-                        Are you sure you want to delete this order? It will be permanently removed.
+                        Are you sure you want to delete this product? It will be permanently removed.
                         This action cannot be undone.
                       </p>
                     </div>
@@ -109,10 +115,9 @@ const MyOrder = () => {
               <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                 <button
                   type="button"
-                  className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm" onClick={()=>clickDelete(order._id)}
-                  
+                  className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+                  onClick={()=>clickDelete(product._id)}
                 >
-                  
                  Delete
                 </button>
                 <button
@@ -129,15 +134,13 @@ const MyOrder = () => {
         </div>
       </Dialog>
     </Transition.Root>
-
+    </div> 
             </li> )
         }
         
     </ul>
-
-  
-        </div>
+            </div>
     );
 };
 
-export default MyOrder;
+export default ManageProduct;

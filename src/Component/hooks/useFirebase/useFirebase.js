@@ -43,11 +43,11 @@ const [isLoading,setIsLoading]=useState(true)
 return ()=> unsubscribe
     },[user])
 
-    // useEffect(()=>{
-    //     fetch(`https://speed-trump-bd.herokuapp.com/user/${user.email}`)
-    //     .then(res=>res.json())
-    //     .then(data=>setAdmin(data.Admin))
-    // },[user.email])
+    useEffect(()=>{
+        fetch(`http://localhost:5000/user/${user.email}`)
+        .then(res=>res.json())
+        .then(data=>setAdmin(data.Admin))
+    },[user.email])
 
  const restPassword=(email)=>{
  sendPasswordResetEmail(auth, email)

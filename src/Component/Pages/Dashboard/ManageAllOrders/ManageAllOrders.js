@@ -1,33 +1,24 @@
-import React,{useEffect, useState,Fragment, useRef} from 'react';
-import useAuth from "../../../hooks/useAuth/useAuth"
+import React, { useEffect, useState,Fragment, useRef } from 'react';
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationIcon } from '@heroicons/react/outline'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-const MyOrder = () => {
-    const {user,logOut}=useAuth()
+const ManageAllOrders = () => {
     const [open, setOpen] = useState(false)
-    const cancelButtonRef = useRef(null)
 
+  const cancelButtonRef = useRef(null)
     const [orders,setOrders]=useState([])
+    // const [status,setStatus]=useState('Pending')
     useEffect(()=>{
-        fetch(`http://localhost:5000/myorder/${user.email}`,{
-            headers:{
-                "authorization":`Bearer ${localStorage.getItem("idToken")}`
-            }
-        })
-        .then(res=>{
-            if(res.status===200){
-                return res.json()
-            }
-            else if(res.status=== 401){
-                logOut()
-            }
-        })
-        .then(data=>setOrders(data))
-    },[user.email,logOut])
-
+        fetch("http://localhost:5000/purchase")
+        .then(res=>res.json())
+        .then(data=>{
+          
+            setOrders(data)
+        }
+            )
+    },[orders])
+  
     const clickDelete=id=>{
         fetch(`http://localhost:5000/purchase/${id}`,{
             method:"DELETE",
@@ -42,24 +33,58 @@ const MyOrder = () => {
             }
         })
     }
-    return (
-        <div className="lg:p-10 p-4">
-                                 <ToastContainer/>
-    <h2 className="text-3xl text-red-500">| My order</h2>
-    <ul className="">
-    
-        {
-            orders.map(order=><li key={order._id} className=" rounded-lg gap-4 grid lg:grid-cols-4  grid-cols-2  lg:space-y-0 space-y-4 justify-center items-center p-2 my-4 bg-white">
-<img src={order.pic} className="w-full rounded-lg h-24" alt="" />
-<p className="text-xl flex-col  font-sans flex">Model: <small className="text-pink-600">{order.carName}</small> </p>
-<p className="text-xl flex-col flex">Issue Date: <small>{order.date}</small> </p>
 
-<div className="flex gap-4 items-center">
-<p className={order.status!=="Approved"?"text-red-500 font-sans font-medium":"text-green-700 font-medium"}>{order.status}</p>
-<button onClick={()=>setOpen(true)} className="border-2 text-red-600 px-2 border-pink-600 font-extrabold">X</button>
-</div>
-  {/* delete modal  */}
-  <Transition.Root show={open} as={Fragment}>
+const clickApproved=(id)=>{
+    const updateStatus={status:"Approved"}
+    fetch(`http://localhost:5000/purchase/${id}`,{
+        method:"PUT",
+        headers:{
+            "content-type":"application/json"
+        },
+        body:JSON.stringify(updateStatus)
+
+    })
+   .then(response=>response.json())
+    .then(data=>{
+        if(data.modifiedCount>0){
+            // setStatus("Approved")
+            toast("Order Has been Update Successfully!")
+            // history.push("/manage-orders")
+}})
+}
+    return (
+      <div className="lg:p-10 p-4">
+                     <ToastContainer/>
+            <h2 className="text-3xl text-red-500">| Manage All Orders</h2>
+            <ul className="">
+        {
+            orders.map(order=><li key={order._id} className="lg:grid-cols-4 rounded-lg gap-4 grid grid-cols-2 text-left lg:space-y-0 space-y-4 justify-between items-center p-2 my-4 bg-white">
+                
+                <div className="relative flex justify-center">
+                    <p className="text-xs text-center absolute bg-gray-900 bg-opacity-30 rounded-md  top-2/4 text-white">Model: <small>{order.carName}</small> </p>
+
+<img src={order.pic} className="w-full rounded-lg h-24" alt="" />
+
+    </div>
+    <div>
+<p className="text-xl font-medium">Name: <span className="text-pink-500">{order.userName}</span></p>
+<p><small className="font-medium text-yellow-600">{order.email}</small></p>
+<small>{order.phone}</small>
+    </div>
+    <div>
+        <h2 className="text-indigo-700  font-medium">Payment</h2>
+       <p> <small className="">{order.paymentVia} : {order.paymentNum}</small></p>
+    </div>
+    <div className=''>
+<p className={order.status!=="Approved"?"text-red-500 font-medium":"text-green-700 font-medium"}>{order.status} </p>
+<span className="flex gap-2 mt-2">
+   
+     <button onClick={()=>clickApproved(order._id)} className="bg-indigo-600 border-2 border-indigo-900 text-white px-2">Accept</button>
+
+    <button onClick={()=>setOpen(true)} className="border-2 text-red-600 px-2 border-pink-600 font-extrabold">X</button></span> 
+
+    {/* delete modal  */}
+    <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="fixed z-10 inset-0 overflow-y-auto" initialFocus={cancelButtonRef} onClose={setOpen}>
         <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child
@@ -109,10 +134,9 @@ const MyOrder = () => {
               <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                 <button
                   type="button"
-                  className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm" onClick={()=>clickDelete(order._id)}
-                  
+                  className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+                  onClick={()=>clickDelete(order._id)}
                 >
-                  
                  Delete
                 </button>
                 <button
@@ -129,15 +153,13 @@ const MyOrder = () => {
         </div>
       </Dialog>
     </Transition.Root>
-
+    </div> 
             </li> )
         }
         
     </ul>
-
-  
-        </div>
+            </div>
     );
 };
 
-export default MyOrder;
+export default ManageAllOrders;
