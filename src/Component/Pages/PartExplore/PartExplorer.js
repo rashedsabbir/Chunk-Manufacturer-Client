@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const PartExplorer = ({car}) => {
     const {_id,name,price,pic,madeyear, description,brand, color, status, rating}=car
     return (
-       <Link to={'/car/'+ _id}>
+       <Link to={'/car/'+_id}>
             <div className="shadow-lg bg-menu1 overflow-hidden">
             <div className="w-full lg:h-56  overflow-hidden relative ">
                 <img src={pic} alt="" className=" transform transition-transform hover:scale-110"/>

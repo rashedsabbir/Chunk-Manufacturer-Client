@@ -17,6 +17,7 @@ import Home from './Component/Pages/Home/Home/Home';
 import Banner from './Component/Pages/Home/Banner/Banner';
 
 import PartExplore from './Component/Pages/PartExplore/PartExplore';
+import SinglePartExplore from './Component/Pages/SinglePartExplore/SinglePartExplore';
 
 function App() {
   return (
@@ -55,6 +56,9 @@ function App() {
      </PrivateRoute>
      <PrivateRoute path='/dashboard'>
  <DashBoard></DashBoard>
+     </PrivateRoute>
+     <PrivateRoute path='/car/:id'>
+ <SinglePartExplore></SinglePartExplore>
      </PrivateRoute>
      <PrivateRoute path="/update-profile">
           <UpdateProfile></UpdateProfile>
