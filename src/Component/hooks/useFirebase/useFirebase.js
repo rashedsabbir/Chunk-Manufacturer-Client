@@ -44,7 +44,7 @@ return ()=> unsubscribe
     },[user])
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/user/${user.email}`)
+        fetch(`https://agile-journey-29324.herokuapp.com/user/${user.email}`)
         .then(res=>res.json())
         .then(data=>setAdmin(data.Admin))
     },[user.email])
@@ -62,7 +62,7 @@ return ()=> unsubscribe
  }
  const saveUserToDB=(email,name,pic,method)=>{
     const user={email,name,pic}
-    fetch('http://localhost:5000/user_data',{
+    fetch('https://agile-journey-29324.herokuapp.com/user_data',{
         method:method,
         headers:{
             'content-type':'application/json'

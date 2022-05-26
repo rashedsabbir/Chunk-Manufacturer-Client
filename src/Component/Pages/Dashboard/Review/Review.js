@@ -18,7 +18,7 @@ const Review = () => {
         reset()
         data.rating=rating
         data.pic=user.photoURL
-          fetch("http://localhost:5000/reviews",{
+          fetch("https://agile-journey-29324.herokuapp.com/reviews",{
 method:"POST",
 headers:{
     "content-type":"application/json"

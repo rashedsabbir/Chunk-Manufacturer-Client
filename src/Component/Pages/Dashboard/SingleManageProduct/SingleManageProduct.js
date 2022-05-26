@@ -20,14 +20,14 @@ const SingleManageProduct = () => {
             setupdate(newData)
         }
     useEffect(()=>{
-        const url=`http://localhost:5000/cars/${id}`
+        const url=`https://agile-journey-29324.herokuapp.com/cars/${id}`
 fetch(url)
 .then(res=>res.json())
 .then(data=>setCar(data))
     },[id])
 
     const updateProduct=()=>{ 
-        fetch(`http://localhost:5000/cars/update/${id}`,{
+        fetch(`https://agile-journey-29324.herokuapp.com/cars/update/${id}`,{
             method:"PUT",
             headers:{
                 "content-type":"application/json"

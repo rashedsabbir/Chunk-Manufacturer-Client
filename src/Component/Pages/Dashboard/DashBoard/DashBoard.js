@@ -18,7 +18,7 @@ const DashBoard = () => {
     const [orders,setOrders]=useState([])
     // const [status,setStatus]=useState('Pending')
     useEffect(()=>{
-        fetch("http://localhost:5000/purchase")
+        fetch("https://agile-journey-29324.herokuapp.com/purchase")
         .then(res=>res.json())
         .then(data=>{
             setOrders(data)

@@ -25,7 +25,7 @@ const DisplayReview = () => {
     const quoteLeft=<FontAwesomeIcon icon={faQuoteLeft}></FontAwesomeIcon>
    const [displayReviews,setDisplayReviews]=useState([])
    useEffect(()=>{
-       fetch('http://localhost:5000/reviews')
+       fetch('https://agile-journey-29324.herokuapp.com/reviews')
        .then(res=>res.json())
        .then(data=>setDisplayReviews(data))
    },[])

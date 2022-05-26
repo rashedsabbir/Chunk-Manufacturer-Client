@@ -10,7 +10,7 @@ const ManageProduct = () => {
   const cancelButtonRef = useRef(null)
     const [products,setProducts]=useState([])
     useEffect(()=>{
-        fetch("http://localhost:5000/cars")
+        fetch("https://agile-journey-29324.herokuapp.com/cars")
         .then(res=>res.json())
         .then(data=>{
           
@@ -20,7 +20,7 @@ const ManageProduct = () => {
     },[products])
   
     const clickDelete=id=>{
-        fetch(`http://localhost:5000/cars/${id}`,{
+        fetch(`https://agile-journey-29324.herokuapp.com/cars/${id}`,{
             method:"DELETE",
         })
        .then(response=>response.json())

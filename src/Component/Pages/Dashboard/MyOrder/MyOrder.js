@@ -12,7 +12,7 @@ const MyOrder = () => {
 
     const [orders,setOrders]=useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/myorder/${user.email}`,{
+        fetch(`https://agile-journey-29324.herokuapp.com/myorder/${user.email}`,{
             headers:{
                 "authorization":`Bearer ${localStorage.getItem("idToken")}`
             }
@@ -29,7 +29,7 @@ const MyOrder = () => {
     },[user.email,logOut])
 
     const clickDelete=id=>{
-        fetch(`http://localhost:5000/purchase/${id}`,{
+        fetch(`https://agile-journey-29324.herokuapp.com/purchase/${id}`,{
             method:"DELETE",
         })
        .then(response=>response.json())
