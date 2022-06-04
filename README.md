@@ -8,3 +8,8 @@
 - admin can make another user admin
 - payment system added
 - admin can update parts
+
+
+Admin Credentials:
+Emaill: hasan@mail.com
+Password : 12345678
