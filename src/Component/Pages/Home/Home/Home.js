@@ -6,9 +6,11 @@ import Products from '../Products/Products';
 import Summary from '../Summary/Summary';
 import Banner from '../Banner/Banner';
 
+
 const Home = () => {
     return (
         <div>
+            
             <Banner></Banner>
             <Summary></Summary>
             <Products></Products>

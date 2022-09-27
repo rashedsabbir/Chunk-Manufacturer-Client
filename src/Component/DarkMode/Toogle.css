@@ -1,0 +1,13 @@
+.dark {
+    background-color: #333;
+color: #fff;
+}
+.light {
+  background-color: #fff;
+  color: #333;
+}
+
+.light .bulb{
+    color: rgb(255, 242, 55);
+   
+}

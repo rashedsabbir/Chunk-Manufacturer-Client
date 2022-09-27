@@ -20,9 +20,11 @@ import SinglePartExplore from './Component/Pages/SinglePartExplore/SinglePartExp
 import PurchaseComplete from './Component/Pages/PurchaseComplete/PurchaseComplete';
 import SingleManageProduct from './Component/Pages/Dashboard/SingleManageProduct/SingleManageProduct';
 
+
 function App() {
   return (
     <div className='App'>
+      
       <AuthProvider>
   <BrowserRouter>
    <Header/>
@@ -76,6 +78,7 @@ function App() {
    <Footer/>
    </BrowserRouter>
   </AuthProvider>
+
       </div>
     
   );

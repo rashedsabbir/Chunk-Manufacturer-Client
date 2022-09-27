@@ -7,6 +7,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import useAuth from '../../hooks/useAuth/useAuth';
 import logo from '../../../images/logo/brake.png'
 import './Header.css'
+import Toogle from '../../DarkMode/Toogle';
 
 const Header = () => {
 
@@ -74,7 +75,7 @@ const Header = () => {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                
+                <Toogle/>
                 {/* Profile dropdown */}
               {
                   user.email ||user.displayName ?<div>
